@@ -1,3 +1,3 @@
 # Shell
-Linux Shells
+Linux Shells and
 Windows Shells
