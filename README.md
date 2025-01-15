@@ -1,2 +1,2 @@
 # Remote 
-SupPort Linux and Windows
+Support Linux and Windows
